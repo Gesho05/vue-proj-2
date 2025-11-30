@@ -20,7 +20,7 @@ const form = reactive({
   company: {
     name: '',
     description: '',
-    contactEmail: ''
+    contactEmail: '',
     contactPhone: ''
   }
 });
