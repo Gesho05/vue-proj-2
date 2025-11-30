@@ -5,6 +5,12 @@ import { useToast } from 'vue-toastification';
 import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
 
+function formatSalary() {
+  if (form.salary && !form.salary.includes('€')) {
+    form.salary = `€${form.salary} /hour`;
+  }
+}
+
 const router = useRouter();
 const toast = useToast();
 const route = useRoute();
@@ -135,28 +141,19 @@ onMounted(async () => {
             </div>
 
             <div class="mb-4">
-              <label for="type" class="block text-gray-700 font-bold mb-2"
-                >Salary</label
-              >
-              <select
+              <label for="salary" class="block text-gray-700 font-bold mb-2">Salary</label>
+              <p class="text-gray-600 text-sm mb-2">Please enter the salary per hour (e.g. 25, 30, 50)</p>
+              <input
                 v-model="form.salary"
+                @input="form.salary = form.salary.replace(/[^\d.]/g, '')"
+                @blur="formatSalary"
+                type="text"
                 id="salary"
                 name="salary"
                 class="border rounded w-full py-2 px-3"
+                placeholder="Enter salary per hour"
                 required
-              >
-                <option value="Under $50K">under $50K</option>
-                <option value="$50K - $60K">$50 - $60K</option>
-                <option value="$60K - $70K">$60 - $70K</option>
-                <option value="$70K - $80K">$70 - $80K</option>
-                <option value="$80K - $90K">$80 - $90K</option>
-                <option value="$90K - $100K">$90 - $100K</option>
-                <option value="$100K - $125K">$100 - $125K</option>
-                <option value="$125K - $150K">$125 - $150K</option>
-                <option value="$150K - $175K">$150 - $175K</option>
-                <option value="$175K - $200K">$175 - $200K</option>
-                <option value="Over $200K">Over $200K</option>
-              </select>
+              />
             </div>
 
             <div class="mb-4">

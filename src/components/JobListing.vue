@@ -39,20 +39,20 @@ const truncatedDescription = computed(() => {
                 </button>
               </div>
 
-              <h3 class="text-green-500 mb-2">{{ job.salary }} / Year</h3>
+              <h3 class="text-green-500 mb-2">{{ job.salary }}</h3>
 
               <div class="border border-gray-100 mb-5"></div>
 
               <div class="flex flex-col lg:flex-row justify-between mb-4">
-                <div class="text-orange-700 mb-3">
-                  <i class="pi pi-map-marker text-orange-700"></i>
+                <div class="text-green-700 mb-3">
+                  <i class="pi pi-map-marker text-green-700"></i>
                   {{ job.location }}
                 </div>
                 <RouterLink
                   :to="'/jobs/' + job.id"
-                  class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
+                  class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 pt-2 rounded-lg text-center text-sm"
                 >
-                  Read More
+                  Open Listing
                 </RouterLink>
               </div>
             </div>
