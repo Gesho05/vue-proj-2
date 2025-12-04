@@ -1,5 +1,5 @@
 <script setup>
-import axios from 'axios';
+import { get, put } from '@/utils/api';
 import { reactive, onMounted } from 'vue';
 import { useToast } from 'vue-toastification';
 import { useRoute } from 'vue-router';
@@ -51,7 +51,7 @@ const handleSubmit = async () => {
         }
     }
     try {
-      const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
+      const response = await put(`/api/jobs/${jobId}`, updatedJob);
       toast.success('Job updated successfully!');
       router.push(`/jobs/${response.data.id}`);
   } catch (error) {
@@ -62,7 +62,7 @@ const handleSubmit = async () => {
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/jobs/${jobId}`);
+    const response = await get(`/api/jobs/${jobId}`);
     state.job = response.data;
 
     // Pre-fill the form with existing job data

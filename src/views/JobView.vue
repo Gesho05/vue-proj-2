@@ -1,7 +1,7 @@
 <script setup>
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import BackButton from '@/components/BackButton.vue';
-import axios from 'axios';
+import { get, delete_ } from '@/utils/api';
 import { reactive, onMounted } from 'vue';
 import { useRouter, RouterLink, useRoute } from 'vue-router';
 import { useToast } from 'vue-toastification';
@@ -21,7 +21,7 @@ const deleteJob = async () => {
   try {
     const confirm = window.confirm('Are you sure you want to delete this job?');
     if (confirm){
-    await axios.delete(`/api/jobs/${jobId}`);
+    await delete_(`/api/jobs/${jobId}`);
     toast.success('Job deleted successfully!');
     router.push('/jobs');
     }
@@ -33,7 +33,7 @@ const deleteJob = async () => {
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/jobs/${jobId}`);
+    const response = await get(`/api/jobs/${jobId}`);
     state.job = response.data;
   } catch (error) {
     console.error('Error fetching job:', error);

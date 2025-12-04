@@ -8,8 +8,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
-  ],
+    // Only include Vue DevTools in development
+    process.env.NODE_ENV !== 'production' && vueDevTools(),
+  ].filter(Boolean),
   server: {
     port: 3000,
     proxy: {
