@@ -67,26 +67,36 @@ The application was built following a comprehensive crash course by Traversy Med
    ```bash
    git clone [your-repo-url]
    cd [your-project-folder]
-Install Dependencies:
 
-Bash
+2.  **Install Dependencies:**
 
-npm install
-Start the Mock API (JSON Server): This command runs the JSON server, simulating a backend API on port 8000 (or the port specified in your package.json).
+    ```bash
+    npm install
+    ```
 
-Bash
+3.  **Start the Mock API (JSON Server):**
+    This command runs the JSON server, simulating a backend API on port `8000` (or the port specified in your `package.json`).
 
-npm run server 
-(Note: This uses the jobs.json file as the database.)
+    ```bash
+    npm run server 
+    ```
 
-Start the Vue Development Server: This runs the main Vue application, typically on port 3000.
+    *(Note: This uses the `jobs.json` file as the database.)*
 
-Bash
+4.  **Start the Vue Development Server:**
+    This runs the main Vue application, typically on port `3000`.
 
-npm run dev
+    ```bash
+    npm run dev
+    ```
+
 The application should now be running in your browser, and you can access the API data via the mock backend.
 
-Source
-This project was developed by following the Vue.js Crash Course by Traversy Media:
+## Source
 
-https://www.youtube.com/watch?v=VeNfHj6MhgA&t=9612s
+This project was developed by following the **Vue.js Crash Course** by Traversy Media:
+
+[Vue.js Crash Course](http://www.youtube.com/watch?v=VeNfHj6MhgA)
+
+```
+```
